@@ -45,8 +45,6 @@ def ros(pdb,trajiters,binderlen):
     import jax.numpy as jnp
     from colabdesign.af.alphafold.common import residue_constants
 
-    print("Imported modules")
-
     def add_rg_loss(self, weight=0.1):
         '''add radius of gyration loss'''
         def loss_fn(inputs, outputs):
@@ -61,15 +59,6 @@ def ros(pdb,trajiters,binderlen):
             return {"rg":rg}
         self._callbacks["model"]["loss"].append(loss_fn)
         self.opt["weights"]["rg"] = weight
-
-    # Print current working directory and list its contents
-    #print("Current working directory:", os.getcwd())
-    #print("Contents of current directory:", os.listdir())
-    # Set the ALPHAFOLD_DATA_DIR environment variable
-    #os.environ['ALPHAFOLD_DATA_DIR'] = '/root/params'
-    #print(os.listdir('/root/params'))
-
-    # Remove all PDB files with 'binder_design' in the file name
 
     # Remove all PDB files with 'binder_design' in the file name
     [os.remove(pdb_file) for pdb_file in glob.glob('*binder_design*.pdb')]
