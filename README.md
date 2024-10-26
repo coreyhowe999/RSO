@@ -15,5 +15,5 @@ git clone https://github.com/coreyhowe999/RSO.git
 ```
 cd RSO
 mv path/to/target.pdb RSO/target.pdb
-modal run modal_rso.py --pdb target.pdb --numdesigns 10 --trajiters 100 --binderlen 100
+modal run rso_modal.py --pdb target.pdb --numdesigns 10 --trajiters 100 --binderlen 100
 ```
